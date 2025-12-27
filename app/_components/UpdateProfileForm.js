@@ -25,6 +25,13 @@ function UpdateProfileForm({ guest, children }) {
   if (!guest) return null;
 
   const { fullName, email, nationality, nationalID, countryFlag } = guest;
+  const isVerifiedInDb = nationalID && nationalID.length >= 6;
+  const showVerifiedBadge = isVerifiedInDb || isSuccess;
+
+  const isCode = countryFlag?.length === 2;
+  const flagUrl = isCode 
+    ? `https://flagcdn.com/w40/${countryFlag.toLowerCase()}.png`
+    : countryFlag;
 
   const handleSendOtp = () => {
     setIsModalOpen(true);
@@ -85,11 +92,13 @@ function UpdateProfileForm({ guest, children }) {
             <div className="flex items-center justify-between">
               <label htmlFor="nationality" className="text-primary-400 text-[10px] font-black uppercase tracking-[0.2em]">Nationality</label>
               {flagUrl && (
-                <img
-                  src={flagUrl}
-                  alt="Country flag"
-                  className="h-4 rounded-[2px] shadow-sm border border-white/10"
-                />
+                <div className="relative h-4 w-6">
+                   <img
+                     src={flagUrl}
+                     alt="Country flag"
+                     className="h-full w-full object-cover rounded-[2px] shadow-sm border border-white/10"
+                   />
+                </div>
               )}
             </div>
             {children}

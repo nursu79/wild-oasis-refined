@@ -83,6 +83,13 @@ export default function MapComponent({ lat, lng, cabinName, userPosition }) {
     );
   }
 
+  const provider = (x, y, z, dpr) => {
+    if (viewMode === "satellite") {
+      return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`;
+    }
+    return `https://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`;
+  };
+
   if (!isMounted) return null;
 
   return (
@@ -269,11 +276,11 @@ function getConditionNote(code) {
 }
 
 // Optimized Polyline Renderer
-function MapPath({ points, color, glow = false, opacity = 1, isFallback = false, project }) {
-  if (!points || points.length < 2 || !project) return null;
+function MapPath({ points, color, glow = false, opacity = 1, isFallback = false, latLngToPixel }) {
+  if (!points || points.length < 2 || !latLngToPixel) return null;
 
   const pathData = points.map(p => {
-    const pixel = project(p);
+    const pixel = latLngToPixel(p);
     return pixel ? `${pixel[0]},${pixel[1]}` : null;
   }).filter(Boolean).join(" ");
 
