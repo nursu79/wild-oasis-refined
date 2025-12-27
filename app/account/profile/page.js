@@ -17,7 +17,7 @@ export default async function Page() {
     return (
       <div className="bg-red-950/20 border border-red-500/20 p-8 rounded-3xl text-center">
         <h2 className="text-xl font-serif text-red-400 mb-4">Guest Data Unavailable</h2>
-        <p className="text-primary-300 mb-6">We couldn't retrieve your guest profile. Please ensure you have run the database repair SQL in Supabase.</p>
+        <p className="text-primary-300 mb-6">We couldn&apos;t retrieve your guest profile. Please ensure you have run the database repair SQL in Supabase.</p>
         <p className="text-xs text-primary-500">Alternatively, try signing out and back in to re-sync your account.</p>
       </div>
     );

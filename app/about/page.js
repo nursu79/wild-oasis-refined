@@ -59,7 +59,7 @@ export default async function Page() {
            <div className="flex flex-col gap-6">
               <div className="w-12 h-1 bg-accent-500 rounded-full" />
               <h3 className="text-2xl font-serif font-bold text-accent-100">Our Essence</h3>
-              <p className="text-sm text-primary-400 italic">"Slow down, breathe deep, and rediscover the joy of being together."</p>
+              <p className="text-sm text-primary-400 italic">&quot;Slow down, breathe deep, and rediscover the joy of being together.&quot;</p>
               <Link
                 href="/cabins"
                 className="w-full text-center bg-accent-500 py-4 text-primary-950 font-black tracking-widest uppercase text-xs rounded-xl hover:bg-accent-400 transition-all shadow-[0_0_20px_rgba(194,163,120,0.3)]"

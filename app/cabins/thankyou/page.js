@@ -14,7 +14,7 @@ export default function Page() {
           Reservation Confirmed
         </h1>
         <p className="text-primary-300 text-xl max-w-lg mx-auto leading-relaxed">
-          Your slice of wilderness is waiting. We've sent the details to your email, and your Forest Butler is preparing for your arrival.
+          Your slice of wilderness is waiting. We&apos;ve sent the details to your email, and your Forest Butler is preparing for your arrival.
         </p>
       </div>
 

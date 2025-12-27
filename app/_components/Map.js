@@ -48,27 +48,6 @@ export default function MapComponent({ lat, lng, cabinName, userPosition }) {
     fetchWeather();
   }, [lat, lng]);
 
-  // Safe-Render: Guard Clause
-  if (!lat || !lng) {
-    return (
-      <div className="h-full w-full bg-primary-950/40 rounded-xl flex flex-col items-center justify-center border border-accent-500/10 backdrop-blur-md overflow-hidden relative min-h-[400px]">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent animate-pulse" />
-        <div className="relative flex flex-col items-center gap-4 text-center px-8">
-            <div className="w-12 h-12 border-2 border-accent-500/20 border-t-accent-500 rounded-full animate-spin" />
-            <p className="text-secondary-400 font-serif italic text-lg">Synchronizing Precision Coordinates...</p>
-            <p className="text-primary-500 text-[10px] uppercase tracking-[0.2em] font-black">Orbital Link Pending</p>
-        </div>
-      </div>
-    );
-  }
-
-  const provider = (x, y, z, dpr) => {
-    if (viewMode === "satellite") {
-      return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`;
-    }
-    return `https://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`;
-  };
-
   // Traveled/Remaining Path Logic
   const paths = useMemo(() => {
     if (!route || !route.points) return null;
@@ -89,6 +68,20 @@ export default function MapComponent({ lat, lng, cabinName, userPosition }) {
         remaining: route.points.slice(nearestIdx)
     };
   }, [route, currentPosition]);
+
+  // Safe-Render: Guard Clause (moved after hooks)
+  if (!lat || !lng) {
+    return (
+      <div className="h-full w-full bg-primary-950/40 rounded-xl flex flex-col items-center justify-center border border-accent-500/10 backdrop-blur-md overflow-hidden relative min-h-[400px]">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent animate-pulse" />
+        <div className="relative flex flex-col items-center gap-4 text-center px-8">
+            <div className="w-12 h-12 border-2 border-accent-500/20 border-t-accent-500 rounded-full animate-spin" />
+            <p className="text-secondary-400 font-serif italic text-lg">Synchronizing Precision Coordinates...</p>
+            <p className="text-primary-500 text-[10px] uppercase tracking-[0.2em] font-black">Orbital Link Pending</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!isMounted) return null;
 

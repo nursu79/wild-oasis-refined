@@ -127,7 +127,7 @@ function ReviewSection({ cabinId, reviews, averageRating, canReview, user }) {
                     </div>
                  </div>
                  <p className="text-primary-200 text-sm leading-relaxed italic font-serif relative z-10">
-                    "{review.comment}"
+                    &quot;{review.comment}&quot;
                  </p>
               </motion.div>
             ))

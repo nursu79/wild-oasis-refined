@@ -84,7 +84,7 @@ export default function ConciergeFAB({ user }) {
                   </h3>
                   
                   <p className="text-primary-200 text-lg font-light leading-relaxed italic mb-8">
-                     "Our AI Concierge is currently trekking the high peaks for better data. Returning soon."
+                     &quot;Our AI Concierge is currently trekking the high peaks for better data. Returning soon.&quot;
                   </p>
 
                   <div className="flex gap-2 justify-center">

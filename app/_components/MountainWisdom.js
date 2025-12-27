@@ -22,7 +22,7 @@ export default function MountainWisdom() {
             exit={{ opacity: 0, y: -10 }}
             className="text-accent-400 font-serif italic text-lg tracking-wide max-w-xs"
           >
-            "{wisdom}"
+            &quot;{wisdom}&quot;
           </motion.p>
         )}
       </AnimatePresence>

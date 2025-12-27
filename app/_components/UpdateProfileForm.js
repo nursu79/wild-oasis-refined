@@ -13,17 +13,6 @@ function UpdateProfileForm({ guest, children }) {
   const [isVerifying, setIsVerifying] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  if (!guest) return null;
-
-  const { fullName, email, nationality, nationalID, countryFlag } = guest;
-  const isVerifiedInDb = nationalID && nationalID.length >= 6;
-  const showVerifiedBadge = isVerifiedInDb || isSuccess;
-
-  const isCode = countryFlag?.length === 2;
-  const flagUrl = isCode 
-    ? `https://flagcdn.com/w40/${countryFlag.toLowerCase()}.png`
-    : countryFlag;
-
   // Timer logic
   useEffect(() => {
     let interval;
@@ -32,6 +21,10 @@ function UpdateProfileForm({ guest, children }) {
     }
     return () => clearInterval(interval);
   }, [isModalOpen, timer, isSuccess]);
+
+  if (!guest) return null;
+
+  const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   const handleSendOtp = () => {
     setIsModalOpen(true);
@@ -180,7 +173,7 @@ function UpdateProfileForm({ guest, children }) {
                 </div>
                 
                 <h3 className="text-2xl font-serif text-white mb-2">Secure Verification</h3>
-                <p className="text-primary-400 text-sm mb-8">We've sent a 6-digit concierge code to <br/><span className="text-primary-100 font-bold">{email}</span></p>
+                <p className="text-primary-400 text-sm mb-8">We&apos;ve sent a 6-digit concierge code to <br/><span className="text-primary-100 font-bold">{email}</span></p>
 
                 {!isSuccess ? (
                   <>

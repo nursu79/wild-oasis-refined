@@ -93,7 +93,7 @@ export default async function Page() {
               ) : (
                 <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 max-w-md animate-slide-up">
                    <h3 className="text-2xl font-serif text-white mb-2 font-bold">Nature is calling</h3>
-                   <p className="text-primary-300 mb-6">You don't have any upcoming stays yet. Explore our cabins and find your perfect escape.</p>
+                   <p className="text-primary-300 mb-6">You don&apos;t have any upcoming stays yet. Explore our cabins and find your perfect escape.</p>
                    <Link 
                      href="/cabins"
                      className="inline-flex bg-accent-500 text-primary-950 px-10 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-accent-400 transition-all active:scale-95"
