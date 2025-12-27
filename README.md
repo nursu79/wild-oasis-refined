@@ -60,4 +60,4 @@ This build differs significantly from the starter code:
 - **Fixed**: Mobile vertical stacking issues resolved with a slide-down glass menu.
 
 ---
-*Built with ❤️ by Sumeya & Antigravity*
+*Built with ❤️ by Sumeya *
