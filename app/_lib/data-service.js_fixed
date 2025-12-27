@@ -1,0 +1,15 @@
+export async function getGuest(email) {
+  const { data, error } = await supabase
+    .from("guests")
+    .select(
+      "id, fullName:name, email, nationality, nationalID:nationalid, countryFlag:countryflag"
+    )
+    .eq("email", email)
+    .single();
+
+  if (error) {
+    console.error("Supabase Error (getGuest):", error.message);
+  }
+
+  return data;
+}
